@@ -13,12 +13,15 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 
 
+
+
+
 class StatsApp(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title('Descriptive Statistics App')
-        self.geometry('400x500')
-
+        self.geometry('1024x786')
+        self.tk.call('source', 'forest-light.tcl')
 
         self.df = pd.read_csv('kc_house_data.csv')  # Load the data at initialization
 
@@ -35,8 +38,8 @@ class StatsApp(tk.Tk):
         self.create_button('Linear Regression', self.perform_linear_regression)
 
     def create_button(self, text, command):
-        btn = tk.Button(self, text=text, command=command)
-        btn.grid(padx=10, pady=10, sticky='nsew')
+        btn = tk.Button(self,text=text, command=command)
+        btn.grid(column=12, padx=10, pady=10, sticky='nsew')
 
     def show_stats(self):
         # Load the data from a CSV file
